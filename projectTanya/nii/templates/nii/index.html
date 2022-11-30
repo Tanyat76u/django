@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+		<meta http-equiv="Content-Type" content="text/html" 
+charset="UTF-8">
+		{% load bootstrap5 %}
+		{% bootstrap_javascript %}
+		{% bootstrap_css %}
+		<title>Научно-исследовательская деятельность НИИ</title>
+</head>
+<body>
+		<h1>Сотрудники</h1>
+		{% for employees in employeess %}
+		<div>
+			  <h2>{{ employees.first_name }}</h2>
+			  <h2>{{ employees.last_name }}</h2>
+			  <h2>{{ employees.middle_name }}</h2>
+			  <h2>{{ employees.inn }}</h2>
+			  <h2>{{ employees.position }}</h2>
+			  <h2>{{ employees.data }}</h2>
+			 <!-- <p>{{ employees.data|date:"d.m.Y."}}</p> -->
+		</div>
+		{% endfor %}
+</body>
+</html>
