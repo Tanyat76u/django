@@ -12,4 +12,14 @@ class Employees(models.Model):
         verbose_name_plural = 'Сотрудники'
         verbose_name = 'Сотрудник'
         ordering = ['-data']
-# Create your models here.
+
+class Projects(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Название')
+    start_date = models.CharField(max_length=50, verbose_name='Дата начала')
+    end_date = models.CharField(max_length=50, verbose_name='Дата окончания')
+    amount_of_financing = models.CharField(max_length=20, verbose_name='Объем финансирования')
+    
+    class Meta:
+        verbose_name_plural = 'Проекты'
+        verbose_name = 'Проект'
+        ordering = ['-start_date']
