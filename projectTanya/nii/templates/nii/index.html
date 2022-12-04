@@ -3,13 +3,17 @@
 <head>
 		<meta http-equiv="Content-Type" content="text/html" 
 charset="UTF-8">
+		{% load bootstrap5 %}
+		{% bootstrap_javascript %}
+		{% bootstrap_css %}
 		<title>Научно-исследовательская деятельность НИИ</title>
 </head>
 <body>
 		<h1>Сотрудники</h1>
 		{% for employees in employeess %}
 		<div>
-				<h2>{{ employees.first_name }}</h2>
+				<h2>{{Сотрудник}}</h2>
+				<p>{{ employees.first_name }}</p>
 				<p>{{ employees.last_name }}</p>
 				<p>{{ employees.middle_name }}</p>
 				<p>{{ employees.num_ser }}</p>
@@ -35,12 +39,6 @@ charset="UTF-8">
 				<p>{{ projects.amount_of_financing }}</p>
 		</div>
 		
-		<div>
-				<h2>{{ projects.name }}</h2>
-				<p>{{ projects.start_date }}</p>
-				<p>{{ projects.end_date }}</p>
-				<p>{{ projects.amount_of_financing }}</p>
-		</div>
 		{% endfor %}
 </body>
 </html>
