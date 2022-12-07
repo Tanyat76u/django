@@ -14,14 +14,14 @@ class Employees(models.Model):
     class Meta:
         verbose_name_plural = 'Сотрудники'
         verbose_name = 'Сотрудник'
-        ordering = ['-data']
+        ordering = ['-num_ser']
 
 class Projects(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название')
     start_date = models.CharField(max_length=50, verbose_name='Дата начала')
     end_date = models.CharField(max_length=50, verbose_name='Дата окончания')
     amount_of_financing = models.CharField(max_length=20, verbose_name='Объем финансирования')
-    employeess = models.ManyToManyField(Employees)
+    employeess = models.ManyToManyField(Employees,verbose_name='Сотрудники')
     def __str__(self):
         return self.name
         
@@ -29,11 +29,3 @@ class Projects(models.Model):
         verbose_name_plural = 'Проекты'
         verbose_name = 'Проект'
         ordering = ['-start_date']
-#
-# /*class Participation(models.Model):
-   # name = models.CharField(max_length=20, db_index=True, verbose_name='Название')
-   # 
-    #class Meta:
-    #verbose_name_plural = 'Участия'
-   # verbose_name = 'Участие'
-    # ordering = ['name']
