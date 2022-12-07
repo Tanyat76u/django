@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-		<meta http-equiv="Content-Type" content="text/html" 
+	<head>
+	<meta http-equiv="Content-Type" content="text/html" 
 charset="UTF-8">
 		{% load bootstrap5 %}
 		{% bootstrap_javascript %}
 		{% bootstrap_css %}
-		<title>Научно-исследовательская деятельность НИИ</title>
-</head>
-<body>
-		<h1>Сотрудники</h1>
+	<title>Научно-исследовательская деятельность НИИ</title>
+	</head>
+	<body>
+  <h2><font face="Arial">Сотрудники</h2>
 		{% for employees in employeess %}
-		<div>
-				<h2>{{Сотрудник}}</h2>
-				<p>{{ employees.first_name }}</p>
-				<p>{{ employees.last_name }}</p>
-				<p>{{ employees.middle_name }}</p>
-				<p>{{ employees.num_ser }}</p>
-				<p>{{ employees.inn }}</p>
-				<p>{{ employees.position }}</p>
-				<p>{{ employees.data }}</p>
-		</div>
-		
-		<div>
-				<h2>{{ employees.name }}</h2>
-				<p>{{ employees.start_date }}</p>
-				<p>{{ employees.end_date }}</p>
-				<p>{{ employees.amount_of_financing }}</p>
-		</div>
+		<div class= "df">Имя: {{ employees.first_name }}</div>
+		<div class= "df">Фамилия: {{ employees.last_name }}</div>
+		<div class= "df">Отчество: {{ employees.middle_name }}</div>
+		<div class= "df">Номер и серия: {{ employees.num_ser }}</div>
+		<div class= "df">ИНН: {{ employees.inn }}</div>
+		<div class= "df">Должность: {{ employees.position }}</div>
+		<div class= "df">Дата рождения: {{ employees.data }}</div>
+	<div style="padding: 10px;"></div>
+		 </div>
+		 
 		{% endfor %}
-
-		<h1>Проекты</h1>
+		
+		
+	<h2><font face="Arial">Проекты</h2>
 		{% for projects in projectss %}
-		<div>
-				<h2>{{ projects.name }}</h2>
-				<p>{{ projects.start_date }}</p>
-				<p>{{ projects.end_date }}</p>
-				<p>{{ projects.amount_of_financing }}</p>
-		</div>
-		
+		<div class= "df">Название проекта: "{{ projects.name }}"</div>
+		<div class= "df">Дата начала: {{ projects.start_date }}</div>
+		<div class= "df">Дата окончания: {{ projects.end_date }}</div>
+		<div class= "df">Объем финансирования: {{ projects.amount_of_financing }}</div>
+	<div style="padding: 10px;"></div>
+
 		{% endfor %}
-</body>
+	</body>
 </html>
