@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-	<meta http-equiv="Content-Type" content="text/html" 
-charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 		{% load bootstrap5 %}
 		{% bootstrap_javascript %}
 		{% bootstrap_css %}
 	<title>Научно-исследовательская деятельность НИИ</title>
 	</head>
 	<body>
-  <h2><font face="Arial">Сотрудники</h2>
-		{% for employees in employeess %}
-		<div class= "df">Имя: {{ employees.first_name }}</div>
-		<div class= "df">Фамилия: {{ employees.last_name }}</div>
-		<div class= "df">Отчество: {{ employees.middle_name }}</div>
-		<div class= "df">Номер и серия: {{ employees.num_ser }}</div>
-		<div class= "df">ИНН: {{ employees.inn }}</div>
-		<div class= "df">Должность: {{ employees.position }}</div>
-		<div class= "df">Дата рождения: {{ employees.data }}</div>
-	<div style="padding: 10px;"></div>
-		 </div>
-		 
-		{% endfor %}
+		<h1>Проекты</h1>
+		{% for projects in projectss %} 
+		<div>
+		<h2><face="Arial">Название проекта: {{ projects.name }}</h2>
+			<!-- <h2> Название проекта: {{ projects.name }}</h2> -->
+			<p> Дата начала проекта: {{ projects.start_date }}</p>
+			<p> Дата окончания проекта: {{ projects.end_date }}</p>
+			<p> Объем финансирования: {{ projects.amount_of_financing}}</p>
+		</div>
 		
+		<h3>Сотрудники</h3> 
+			{% for c1 in projects.employeess.all %}
+			<div>
+				<li>{{ c1 }}</li>
+			</div>
+			{% endfor %}
 		
-	<h2><font face="Arial">Проекты</h2>
-		{% for projects in projectss %}
-		<div class= "df">Название проекта: "{{ projects.name }}"</div>
-		<div class= "df">Дата начала: {{ projects.start_date }}</div>
-		<div class= "df">Дата окончания: {{ projects.end_date }}</div>
-		<div class= "df">Объем финансирования: {{ projects.amount_of_financing }}</div>
-	<div style="padding: 10px;"></div>
-
 		{% endfor %}
+	
+<!-- 	<h2>Сотрудники</h2>
+	{% for employees in employeess %}
+	<div>
+		<p> Имя{{ employees.first_name }}</p>
+		<p> Фамилия:{{ employees.last_name }}</p>
+		<p> Отчество:{{ employees.middle_name }}</p>
+		<p> Номер и серия:{{ employees.num_ser }}</p>
+		<p> ИНН:{{ employees.inn }}</p>
+		<p> Должность:{{ employees.position }}</p>
+		<p> Дата рождения:{{ employees.data }}</p>
+	</div>
+	{% endfor %} -->
 	</body>
-</html>
+</html>	
+
